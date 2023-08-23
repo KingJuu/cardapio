@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+
+        <h1>Salgados</h1>
+        <label for="frang-cat" class="nome">
+        <input type="radio" class="check" name="frang-cat" value="1">Frango com Catupiry
+        </label>
+        <label for="frang-bac" class="nome">
+        <input type="radio" class="check" name="frang-bac" value="2">Frango com Bacon
+        </label>
+        <label for="hamb-calab" class="nome">
+        <input type="radio" class="check" name="hamb-calab" value="3">Hamburguer Calabresa
+        </label>
+        <label for="hamb-cheddar" class="nome">
+            <input type="radio" class="check" name="hamb-cheddar" value="4">Hamburguer Calabresa
+            </label>
+
+        <div id="1">
+            Frango com Catupiry
+        </div>
+        <div id="2">
+            Frango com Bacon
+        </div>
+        <div id="3">
+            Hamburguer Calabresa
+        </div>
+        <div id="4">
+            Hamburguer Cheddar
+        </div>
+
+        <button id="salvar">Salvar</button>
+    </div>
+    <script>
+
+        document.getElementById('salvar').addEventListener('click', function(){
+
+            var verificar = document.getElementsByClassName('check');
+            console.log(verificar);
+            localStorage.clear();
+
+            for (var i = 0; i< verificar.length; i++ ){
+                console.log('rodada '+ i);
+
+                if(verificar[i].checked){
+                    console.log('Valor checked ' + verificar[i].value);
+                    var lanche = document.getElementById(verificar[i].value);
+                    console.log('div do lanche ' + lanche);
+
+                    console.log('localStorageAntes ' + localStorage.getItem('excluirLanche'));
+                    var valorLanche = verificar[i].value;                    
+                    localStorage.setItem("excluirLanche"+[i], valorLanche);
+                    console.log('Valor localStorageNovo ' + localStorage.getItem('excluirLanche'+[i]))
+                    console.log(localStorage.length + localStorage);
+
+                    var outraPagina = window.open('index.html', '_blank');
+                    
+                }
+            }
+
+       
+        })
+        //lanche.parentNode.removeChild(lanche);
+        //var outraPagina = window.open('testeI.html', '_blank');
+    </script>
+</body>
+</html>

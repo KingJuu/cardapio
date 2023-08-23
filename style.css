@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
+}
+
+.teste{
+display: block;
+background-color: #c9c9c9;
+margin:0.2em;
+}
+.teste1{
+display:none;
+
+}
+
+.check{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#salvar{
+    width: max-content;
+    margin-top: 3em
+}
+
+.nome{
+    display: flex;
+    flex-direction: row;
+    margin-top:1%;
+}

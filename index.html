@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    
+    
+</style>
+
+<body>
+    <div class="container">
+        <h1>Salgados...8,00 R$</h1>
+        <label class="nome">
+            <div id="1" name="1" class="teste ">Frango com Catupiry</div>
+        </label>
+        <label class="nome">
+            <div id="2" name="2" class="teste">Frango com Bacon</div>
+        </label>
+        <label class="nome">
+            <div id="3" name="3" class="teste">Hamburguer Calabresa</div>
+        </label>
+        <label class="nome">
+            <div id="4" name="4" class="teste">Hamburguer Cheddar</div>
+        </label>
+        <a href="testeM.html"><button>Voltar</button></a>
+    </div>
+</body>
+<script>
+    var verificarStorage = localStorage;
+    console.log(verificarStorage);
+
+    var contador = 0;
+    for(var i = 0; i<localStorage.length; i++){
+        var verificacao = (localStorage.getItem(`excluirLanche${contador}`));
+
+        console.log(i)
+        console.log('contador inicio do for '+contador)
+        console.log(verificacao)  
+
+        if(verificacao == null){
+            console.log('contador inicio do if '+contador)
+            contador++;
+            console.log('contador final do if '+contador)
+            excluir();
+
+        }else{
+            console.log('contador else '+contador)
+            excluir();
+        }
+    }
+
+    function excluir(){
+        var lancheExcluido = (localStorage.getItem(`excluirLanche${contador}`));
+        console.log(lancheExcluido);
+        contador++;
+        var acharId = parseInt(lancheExcluido);
+        console.log(acharId)
+
+        var acharDiv = document.getElementById(`${acharId}`);
+       
+       console.log(acharDiv.classList)
+            if(acharDiv.classList.contains('teste1')){
+                acharDiv.classList.remove('teste1');
+            }else{
+                acharDiv.classList.add('teste1');
+            }
+        
+       console.log(acharDiv.classList)
+    }
+
+
+</script>
+</html>
